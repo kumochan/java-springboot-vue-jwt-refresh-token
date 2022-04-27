@@ -1,0 +1,35 @@
+version: "3.7"
+
+services:
+  vue3-jwt-refresh-token:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ".:/usr/src/app"
+      - /usr/src/app/node_modules
+    environment:
+      - npm_config_unsafe_perm=true
+    container_name: ethan-vue3-jwt-refresh-token
+    image: ethan/vue3-jwt-refresh-token
+    restart: always
+    ports:
+      - "8081:8080"
+    # networks:
+    #   - vue-network-2
+
+# networks:
+#   vue-network-2:
+#     driver: bridge
+
+
+#     version: "3.6"
+
+# services:
+#   app:
+#     image: learning-docker/vue:v1
+#     volumes:
+#       - ./src:/app/src
+#     ports:
+#       - "5000:8080"
+#     restart: unless-stopped
